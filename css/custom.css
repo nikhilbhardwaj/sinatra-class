@@ -1,0 +1,27 @@
+table.wikitable, table.mw_metadata {
+    background: none repeat scroll 0 0 white;
+    border: 1px solid #AAAAAA;
+    border-collapse: collapse;
+    margin: 1em 1em 1em 0;
+    font-size : medium;
+}
+
+table.wikitable > tr > th, table.wikitable > tr > td, table.wikitable > * > tr > th, table.wikitable > * > tr > td, .mw_metadata th, .mw_metadata td {
+    border: 1px solid #AAAAAA;
+    padding: 0.2em;
+}
+
+table.wikitable > tr > th, table.wikitable > * > tr > th, .mw_metadata th {
+    background: none repeat scroll 0 0 white;
+    font-weight: bold;
+    text-align: center;
+}
+
+table.wikitable > caption, .mw_metadata caption {
+    font-weight: bold;.wikitable, .thumb, img {
+    page-break-inside: avoid;
+}
+
+.wikitable {
+    page-break-inside: avoid;
+}
