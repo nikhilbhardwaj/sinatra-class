@@ -1,0 +1,20 @@
+{
+	"author": "Nikhil Bhardwaj",
+	"name": "Sinatra Class",
+	"description": "An ACM class to introduce people to web development with Sinatra.",
+	"version": "0.1",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/nikhilbhardwaj/sinatra-class.git"
+	},
+	"engines": {
+		"node": "~0.6.8"
+	},
+	"dependencies": {
+		"underscore" : "1.3.3",
+		"express" : "2.5.9",
+		"socket.io" : "0.9.6",
+		"mustache" : "0.4.0"
+	},
+	"devDependencies": {}
+}
