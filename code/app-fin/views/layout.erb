@@ -15,6 +15,12 @@ h2 {font-size:300px;}
 <script src="jquery.js"></script>
 
 <script>
+//$(getUpdate);
+function getUpdate()
+{
+  $("body").load("/");
+  setTimeout(getUpdate, 1000);
+}
 </script>
 </head>
 

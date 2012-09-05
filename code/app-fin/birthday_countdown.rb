@@ -48,4 +48,11 @@ class BirthdayCountdown
     end
   end
  
+  def to_view
+    if isit?
+      :yes
+    else
+      :no
+    end
+  end
 end
