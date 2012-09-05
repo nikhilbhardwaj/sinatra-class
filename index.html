@@ -65,11 +65,11 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
     <section>
       <h2>Table Of Contents</h2>
       <ol>
+        <li>What you can Expect to learn today</li>
         <li>HTTP verbs &amp; Being RESTful</li>
         <li>Installing Sinatra</li>
         <li>Sinatra Basics</li>
         <li>Demo of the finished app</li>
-        <li>What you can Expect to learn today</li>
         <li>Live Coding</li>
         <li>Deploy to heroku</li>
         <li>Wrap Up and Questions</li>
@@ -77,6 +77,16 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
       </ol>
     </section>
 
+    <!-- Great Expectations -->
+    <section>
+      <h4>What you can Expect to learn today</h4>
+      <p>At the end of this class, you won't become a web development Ninja
+      or know sinatra inside out. You will however get an idea of how simple
+      web applications are built and hopefully you'll be motivated enough to give
+      it a shot.
+      </p>
+      <p>Becoming an expert needs practice, practice and yet more practice.</p>
+    </section>
     <!-- HTTP Verbs and REST -->
     <section>
       <section data-markdown>
@@ -95,6 +105,7 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
         Focusses on vocabulary re-use instead of arbitrary extension.
       </section>
       <section>
+        <!-- Copied from Wikipedia! !-->
         <table border="1" class="wikitable">
           <caption>RESTful Web Service HTTP methods</caption>
           <tbody>
@@ -121,43 +132,146 @@ document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.se
         </table>
       </section>
     </section>
+
     <!-- Installing Sinatra -->
+    <section>
+      <h2>Installing Sinatra</h2>
+      <pre>
+        <code>
+        gem install sinatra
+        gem install shotgun
+        </code>
+      </pre>
+    </section>
 
     <!-- Sinatra Basics -->
+    <section>
+      <section>
+        <h2>The Basics</h2>
+        <p>Create basics.rb</p>
+        <pre>
+          <code>
+          require 'sinatra'
+          </code>
+        </pre>
+        <p>Lets Run it!</p>
+      </section>
+
+      <section>
+        <h2>Hello World</h2>
+        <pre>
+          <code>
+get '/' do  
+  "Hello, World!"  
+end       </code>
+        </pre>
+      </section>
+
+      <section>
+        <h3>Basic Routing</h3>
+        <pre>
+          <code>
+          get '/about' do  
+            'A little about me.'  
+          end 
+          </code>
+        </pre>
+        <h3>Some Parameters</h3>
+        <pre>
+<code> 
+get "/reverse/:string" do
+  params[:string].reverse
+end
+</code>
+        </pre>
+      </section>
+      <section>
+        <h3>More Parameters</h3>
+        <pre>
+<code>
+get '/hello/:name/:city' do  
+  "Hey there #{params[:name]} from #{params[:city]}."  
+end
+</code>
+        </pre>
+        <h3>Splat!</h3>
+        <pre>
+          <code>
+get '/more/*' do  
+  params[:splat]  
+end 
+</code>
+        </pre>
+        <p>Useful When dealing with unknow number of parameters.</p>
+      </section>
+
+      <section>
+        <h2>Templates &amp; Views</h2>
+        <p>Templates give us the ability to apply
+        consistent styles to our websites. Also we don't just
+        return strings to the browser, we need formatted html.</p>
+        <p>Some of the common templating engines supported by sinatra are:
+        <ul>
+          <li>erb</li>
+          <li>haml</li>
+          <li>slim</li>
+        </ul><br />
+        and many others too.
+        </p>
+      </section>
+
+      <section>
+        <small>
+          <h3>Templates in action</h3>
+          <pre>
+<code>
+mkdir views
+touch about.erb
+&lt;h2&gt;<%= @about %>&lt;/h2&gt;
+</code>
+          </pre>
+          <h3>Applying templates</h3>
+          <p>Add this to the /about section to</p>
+          <pre>
+          <code>
+get '/about' do  
+   @about = 'Get to know a little about me.'  
+   erb :about
+end     </code>
+          </pre>
+          <p>I have already written the layout.erb, which is inherited by all
+          other routes and your header, footer and the site markup go here.
+          </p>
+        </small>
+      </section>
+
+      <section>
+        <h3>Forms and POST</h3>
+<pre>
+<code>
+get "/greet" do
+  erb :form
+end
+
+post "/greet" do
+  "You said #{params[:message]}"
+end
+</code>
+</pre>
+      </section>
+
+      <section>
+        <h2>That's Sinatra in a nutshell</h2>
+        <p>Any Doubts so far?</p>
+      </section>
+    </section>
 
     <!-- Demo of the finished app -->
 
-    <!-- Great Expectations -->
 
     <!-- Live Code Walkthrough -->
     <section>
       <section>
-        <h2>Code Walkthrough</h2>
-        <p>
-        Slides can be nested inside of other slides,
-        try pressing <a href="#/2/1">down</a>.
-        </p>
-        <a href="#/2/1" class="image">
-          <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-        </a>
-      </section>
-      <section>
-        <h2>Basement Level 1</h2>
-        <p>Press down or up to navigate.</p>
-      </section>
-      <section>
-        <h2>Basement Level 2</h2>
-        <p>Cornify</p>
-        <a class="test" href="http://cornify.com">
-          <img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-        </a>
-      </section>
-      <section>
-        <h2>Basement Level 3</h2>
-        <p>That's it, time to go back up.</p>
-        <a href="#/2" class="image">
-          <img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-        </a>
       </section>
     </section>
 
