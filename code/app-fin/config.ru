@@ -1,3 +1,3 @@
 $:.unshift File.expand_path("../", __FILE__)
-require './app'
+require './web'
 run Sinatra::Application
