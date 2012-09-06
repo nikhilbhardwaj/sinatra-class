@@ -1,0 +1,9 @@
+<% if !@short_url.nil? && !@short_url.valid? %>
+  <p>  <%= "Invalid Url : #{@short_url.url}" %> </p>
+<% end %>
+
+<form action="/" method="POST">
+  <label for="url">URL</label>
+  <input type="text" name="url" id="url" />
+  <input type="submit" value="Shorten" />
+</form>
