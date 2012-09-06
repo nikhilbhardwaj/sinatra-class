@@ -13,7 +13,13 @@ h2 {font-size:300px;}
 <title>Is it Debo's Birthday</title>
 
 <script src="jquery.js"></script>
-
+<script>
+function getUpdate()
+{
+  setTimeout(getUpdate, 1000);
+  $("body").load("/");
+}
+</script>
 </head>
 
 <body>
@@ -21,11 +27,6 @@ h2 {font-size:300px;}
 
 
 <script>
-function getUpdate()
-{
-  setTimeout(getUpdate, 1000);
-  $("body").load("/");
-}
 $(getUpdate);
 </script>
 </body>
